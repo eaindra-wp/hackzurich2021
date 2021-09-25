@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Upload Medical Documents{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+{% if msg %}
+   <h1>{{ msg }}</h1>
+   {% endif %}
+   <h1>Upload Medical Documents</h1>
+  
+<form method="post" enctype = "multipart/form-data"> 
+    
+    <input type="file" name = "document-one"/>
+    <input type="submit" value="Upload Documents"></input>
+  </form>
+
+  <h1>Result:</h1>
+   {% if img_src %}
+     <img src="{{ img_src }}">
+   {% endif %}
+  
+   {% if extracted_text %}
+     <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p>
+  
+   {% else %}
+     The extracted text will be displayed here
+   {% endif %}
+
+   <h4>{{logged_in_username}}</h4>
+{% endblock %}

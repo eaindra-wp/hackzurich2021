@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+{% block title %}Login{% endblock %}
+{% endblock %}
+
+{% block content %}
+<nav>
+  <h1 class="text-center my-5">Digital Twin SWICA</h1>
+</nav>
+<div class="container h-100" id="login">
+  <div class="row d-flex justify-content-center h-100">
+    <div class="col-12 col-md-6 my-auto">
+      <div id="login_bg">
+        <form method="post" id="login_form">
+
+          <div class="row d-flex justify-content-center" id="email">
+            <div class="col-6 p-0" id="emailText"><label for="email">EMAIL</label></div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-6 div-border">
+              {% if error_email %}
+              <p> {{ error_email }}</p>
+
+              {% endif %}
+              <input class="row w-100 border-0" type="text" name="email" placeholder="" autocapitalize="off"
+                autocorrect="off" id="email_input" required />
+            </div>
+          </div>
+
+          <div class="row"><span style="opacity:0">a</span></div>
+
+          <div class="row d-flex justify-content-center x-0" id="email">
+            <div class="col-6 p-0" id="emailText"><label for="password">PASSWORD</label></div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-6 div-border">
+              {% if error_password %}
+              <p> {{ error_passsword }}</p>
+
+              {% endif %}
+              <input class="row w-100 border-0" type="password" name="password" placeholder="" autocapitalize="off"
+                autocorrect="off" id="password_input" required />
+            </div>
+          </div>
+          {% if error_wrong_credentials %}
+              <p> {{ error_wrong_credentials }}</p>
+
+              {% endif %}
+
+          <div class="row"><span style="opacity:0">a</span></div>
+
+          <div class="row d-flex justify-content-center">
+            <div class="col-6"><span style="opacity:0">a</span></div>
+            <div class="col-6 float-right">
+              <input type="submit" value="Log in" class="border-0 col-6" id="form_submit" />
+            </div>
+          </div>
+      </div>
+
+
+      </form>
+      <div class="row d-flex justify-content-center">
+        <div class="col-6">
+          <a HREF="#" id="forgot_my_password">Forgot my password</a>
+        </div>
+      </div>
+
+      <div class="row"><span style="opacity:0">a</span></div>
+    </div>
+
+
+    {% endblock %}
