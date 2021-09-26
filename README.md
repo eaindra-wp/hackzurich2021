@@ -1,5 +1,5 @@
-# DigitalTwin for SWICA
-In Switzerland, most of the medical records are still saved on the paper. This could lead us to delays in diagnosis and resource planning. Hence, a centralized data platform called DigitalTwin is created to overcome such problems and enable the users to share their data with health care providers.
+# HealthYou
+In Switzerland, many medical records are saved on paper, so delays in diagnosis and resource planning happen. Our centralized data platform enables users to share their data with health care providers.
 
 -------
 ## Front-end
@@ -15,7 +15,7 @@ We leveraged `Tensorflow`, `Keras`, and a LOT of research to build a predictive 
 
 ---------
 
-## File Directory
+### File Directory
 Below is a short summary of the folders in this repository.
 * hackzurich2021
     * [flaskr](./flask) --> main folder for this web application built by Flask. 
@@ -34,4 +34,5 @@ Below is a short summary of the folders in this repository.
     * [user_profile_details.csv](./user_profile_details.csv)  --> Here, the health-related details of each signed up user will be saved in this .csv file. 
     * [user_signup_details.csv](./user_signup_details.csv) --> Here, the sign-up and log-in credentials of the user will be saved. 
     
-    
+### Pre-requisites
+You will need to install python packages like `Tensorflow`, `Flask` via `pip` to run this application successfully. More information to host and run this Flask application can be found here: https://flask.palletsprojects.com/en/2.0.x/
