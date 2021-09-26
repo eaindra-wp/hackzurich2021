@@ -1,0 +1,19 @@
+body,html {
+  height: 100%;
+  background-color: #F6F7FC;
+}
+.div-border{
+  border-bottom: 0px solid #000 !important;
+}
+input[type="text"],input[type="password"],textarea{
+  background-color:#fff;
+}
+#form_submit{
+  border:2px solid #000!important;
+  background-color:white;
+  color:#000;
+}
+#forgot_my_password{
+  color:#000;
+  font-size:smaller;
+}

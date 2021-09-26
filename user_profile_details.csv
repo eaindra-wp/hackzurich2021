@@ -1,2 +1,2 @@
-,id,user_id
-1,10
+,id,user_id,insurance_id,date_of_birth,weight,height,blood_group,smoking_frequency,drinking_frequency
+0,1,1,7542,2021-08-30,78,152,A+,Never smoked,Do not drink

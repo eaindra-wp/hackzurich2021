@@ -15,9 +15,14 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/signup', methods=('POST', 'GET'))
 def signup():
+    '''
+    This is the route method to return the view for the 'signup' form. 
+    Errors messages will be returned back too in case some entries are invalid. 
+    '''
     
     return_result = render_template("auth/signup.html")
 
+    # pre-define error messages 
     error_firstname = None
     error_lastname = None
     error_password = None
@@ -26,8 +31,10 @@ def signup():
     error_phonenumber = None
     error_passwords_unmatched = None
 
+    
     if request.method == 'POST':
 
+        # define error messages according to what we receive from the form submission. 
         firstname = request.form['first_name']
         lastname = request.form['last_name']
         password = request.form['password']
@@ -42,7 +49,6 @@ def signup():
         if not lastname:
             error_lastname = "Last name is required."
             
-
         if not password:
             error_password = "Password is required."
             
@@ -63,6 +69,7 @@ def signup():
              error_email = "Email is required."
         
 
+        # if all required entries are filled in the form, then we can append a new form inside the .csv file. 
         if error_firstname or error_lastname or error_email or error_password or error_passwords_unmatched or error_repassword or error_phonenumber:
 
             return_result = render_template("auth/signup.html", error_firstname=error_firstname, error_lastname=error_lastname,
@@ -95,12 +102,14 @@ def login():
 
     return_result = render_template("auth/login.html")
 
+    # pre-define error messages 
     error_password = None
     error_email = None
     error_wrong_credentials =  None
 
     if request.method == 'POST':
 
+        # get the input values from the form
         email = request.form['email']
         password = request.form['password']
 
@@ -111,30 +120,36 @@ def login():
             error_password = 'Password is required.'
         
         else:
+
+            # if both input boxes are filled, then we need to check if the credentials exist in the csv file. 
             user_signup_details = pd.read_csv(
                 'user_signup_details.csv', index_col=0)
 
-            logged_in_userid = user_signup_details.loc[(
+            if ((user_signup_details['email'] == email) & (user_signup_details['password'] == password)).any():
+
+                logged_in_userid = user_signup_details.loc[(
                 user_signup_details['email'] == email) & (user_signup_details['password'] == password), 'id'].values[0]
 
-            if logged_in_userid is None:
-                error_wrong_credentials = "User is not found. Please check yor credentials again."
-                return_result = render_template('auth/login.html', error_email=error_email, error_password=error_password, 
-                    error_wrong_credentials=error_wrong_credentials)
-
-            else:
+                # get the user ID for further tracking on the webpage .
                 session.clear()
                 session['user_id'] = str(logged_in_userid)
 
-                user_profile_details = pd.read_csv('user_profile_details.csv', index_col=0)
-                loggedin_user_profile_id =  user_profile_details.loc[(
-                user_profile_details['user_id'] == logged_in_userid), 'id'].values[0]
 
-                if loggedin_user_profile_id is None:
+                # since we would want save the user to fill further health-related information,
+                # we will also check if the user's health profile is saved in our .csv file. 
+
+                user_profile_details = pd.read_csv('user_profile_details.csv', index_col=0)
+
+                if (user_profile_details['user_id'] == logged_in_userid).any():
                     return_result = redirect(url_for("home.complete_profile"))
 
                 else: 
-                    return_result = redirect(url_for("home.home"))
+                    return_result = redirect(url_for("home.index"))
+                    
+            else:
+                error_wrong_credentials = "User is not found. Please check yor credentials again."
+                return_result = render_template('auth/login.html', error_email=error_email, error_password=error_password, 
+                    error_wrong_credentials=error_wrong_credentials)
 
 
     return return_result

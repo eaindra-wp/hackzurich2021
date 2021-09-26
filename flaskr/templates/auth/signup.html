@@ -1,116 +1,127 @@
-{% extends 'base.html' %}
+<!doctype html>
+<title>{% block title %}{% endblock %} - DigitalTwins</title>
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="../../static/img/apple-icon.png">
+<link rel="icon" type="image/png" href="../../static/img/favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-{% block header %}
-<h1>{% block title %}Signup{% endblock %}</h1>
-{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
 
-{% block content %}
-<div class="container h-100" id="login">
-  <div class="row d-flex justify-content-center h-100">
-    <div class="col-10 col-md-8 my-auto">
-      <div id="login_bg">
-        <h3>Register</h3>
-        <form method="POST" enctype="multipart/form-data">
-          <div class="row"><span style="opacity:0">a</span></div>
-          <div class="row">
-            <div class="col-md-6">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+  name='viewport' />
 
-              <div class="form-group first">
-                
+<body lang="en">
+  <div class="container h-100" id="login">
+    <div class="row d-flex justify-content-center h-100">
+      <div class="col-10 col-md-8 my-auto">
+        <div id="login_bg">
+          <h3>Register</h3>
+          <form method="POST" enctype="multipart/form-data">
+            <div class="row"><span style="opacity:0">a</span></div>
+            <div class="row">
+              <div class="col-md-6">
 
-                <label for="first_name">First Name</label>
-                <input class="form-control" type="text" name="first_name" placeholder="e.g. John" autocapitalize="on"
-                  autocorrect="off" id="first_name_input"  value="{{filled_firstname}}"/>
+                <div class="form-group first">
+
+
+                  <label for="first_name">First Name</label>
+                  <input class="form-control" type="text" name="first_name" placeholder="e.g. John" autocapitalize="on"
+                    autocorrect="off" id="first_name_input" value="{{filled_firstname}}" />
                   {% if error_firstname %}
                   <p class="text-danger">{{ error_firstname }}</p>
                   {% endif %}
+                </div>
               </div>
-            </div>
 
-            <div class="col-md-6">
-              <div class="form-group first">
-                <label for="last_name">Last Name</label>
-                <input class="form-control" type="text" name="last_name" placeholder="e.g. Doe" autocapitalize="on"
-                  autocorrect="off" id="last_name_input"  value="{{filled_lastname}}"/>
+              <div class="col-md-6">
+                <div class="form-group first">
+                  <label for="last_name">Last Name</label>
+                  <input class="form-control" type="text" name="last_name" placeholder="e.g. Doe" autocapitalize="on"
+                    autocorrect="off" id="last_name_input" value="{{filled_lastname}}" />
                   {% if error_lastname %}
                   <p class="text-danger">{{ error_lastname }}</p>
                   {% endif %}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group first">
-                <label for="email">Email</label>
-                <input class="form-control" type="text" name="email" placeholder="e.g. john@your-domail.com"
-                  autocapitalize="off" autocorrect="off" id="email_input" value="{{filled_email}}" />
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group first">
+                  <label for="email">Email</label>
+                  <input class="form-control" type="text" name="email" placeholder="e.g. john@your-domail.com"
+                    autocapitalize="off" autocorrect="off" id="email_input" value="{{filled_email}}" />
                   {% if error_email %}
                   <p class="text-danger">{{ error_email }}</p>
                   {% endif %}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group first">
-                <label for="phone_number">Phone number</label>
-                <input class="form-control" type="text" name="phone_number" placeholder="+(xx) xxx xxxxxxx"
-                  autocapitalize="off" autocorrect="off" id="phonenumber_input" value="{{filled_phonenumber}}" />
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group first">
+                  <label for="phone_number">Phone number</label>
+                  <input class="form-control" type="text" name="phone_number" placeholder="+(xx) xxx xxxxxxx"
+                    autocapitalize="off" autocorrect="off" id="phonenumber_input" value="{{filled_phonenumber}}" />
                   {% if error_phonenumber %}
                   <p class="text-danger">{{ error_phonenumber }}</p>
                   {% endif %}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group first">
-                <label for="password">Password</label>
-                <input class="form-control" type="Password" name="password" placeholder="" autocapitalize="off"
-                  autocorrect="off" id="password_input"/>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group first">
+                  <label for="password">Password</label>
+                  <input class="form-control" type="Password" name="password" placeholder="" autocapitalize="off"
+                    autocorrect="off" id="password_input" />
                   {% if error_password %}
                   <p class="text-danger">{{ error_password }}</p>
                   {% endif %}
                   {% if error_passwords_unmatched %}
                   <p class="text-danger">{{ error_passwords_unmatched }}</p>
                   {% endif %}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group first">
-                <label for="re_password">Re-enter Password</label>
-                <input class="form-control" type="Password" name="re_password" placeholder="" autocapitalize="off"
-                  autocorrect="off" id="repassword_input" />
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group first">
+                  <label for="re_password">Re-enter Password</label>
+                  <input class="form-control" type="Password" name="re_password" placeholder="" autocapitalize="off"
+                    autocorrect="off" id="repassword_input" />
                   {% if error_repassword %}
                   <p class="text-danger">{{ error_repassword }}</p>
                   {% endif %}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="d-flex mb-5 mt-4 align-items-center">
-            <div class="d-flex align-items-center">
-              <label class="control control--checkbox mb-0"><span class="caption">Creating an account means you're okay
-                  with our <a href="#">Terms and Conditions</a> and our <a href="#">Privacy Policy</a>.</span>
-                <input type="checkbox" checked="checked" name="agreement_check" required/>
-                
-                <div class="control__indicator"></div>
-              </label>
+            <div class="d-flex mb-5 mt-4 align-items-center">
+              <div class="d-flex align-items-center">
+                <label class="control control--checkbox mb-0"><span class="caption">Creating an account means you're
+                    okay
+                    with our <a href="#">Terms and Conditions</a> and our <a href="#">Privacy Policy</a>.</span>
+                  <input type="checkbox" checked="checked" name="agreement_check" required />
+
+                  <div class="control__indicator"></div>
+                </label>
+              </div>
             </div>
-          </div>
 
-          <input type="submit" value="Register" class="btn px-5 btn-primary">
-        </form>
+            <input type="submit" value="Register" class="btn px-5 btn-primary">
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-
-    {% endblock %}
+</body>

@@ -1,21 +1,277 @@
-{% extends 'base.html' %}
 
-{% block header %}
-<h1>{% block title %}Signup{% endblock %}</h1>
-{% endblock %}
+<!doctype html>
+<html lang="en">
 
-<form method="POST">
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-            Default radio
-        </label>
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../../static/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../../static/img/favicon.png">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Your Health Partner
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigins="anonymous">
+
+
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo align-items-center justify-content-center">
+                <div class="logo-image-big">
+                    <img src="../../static/img/Swica.png">
+                </div>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="active ">
+                        <a href="javascript:;">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="nc-icon nc-diamond"></i>
+                            <p>Upload Documents</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="nc-icon nc-pin-3"></i>
+                            <p>Third Item</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" style="height: 100vh;">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="javascript:;">Swica</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <form>
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="nc-icon nc-zoom-split"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item btn-rotate dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com"
+                                    id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="nc-icon nc-bell-55"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Some Actions</span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10">
+                        <form method="post" >
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group first">
+                                        <label for="insuranceid">Insurance ID</label>
+                                        <input class="form-control" type="text" name="insurance_id" placeholder=""
+                                            autocapitalize="off" autocorrect="off" id="insurance_id_input" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row"><span style="opacity:0">a</span></div>
+                            <div class="row"><span style="opacity:0">a</span></div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group first">
+                                        <label for="dateofbirth">Date of Birth</label>
+                                        <input class="form-control" type="date" name="date_of_birth" placeholder=""
+                                            autocapitalize="off" autocorrect="off" id="date_of_birth_input" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group first">
+                                        <label for="weight">Weight in kilogram</label>
+                                        <input class="form-control" type="number" name="weight" placeholder="xx kg"
+                                            autocapitalize="off" autocorrect="off" id="weight_input" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group first">
+                                        <label for="height">Height in centimeter</label>
+                                        <input class="form-control" type="number" name="height" placeholder="xxx cm"
+                                            autocapitalize="off" autocorrect="off" id="height_input" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row"><span style="opacity:0">a</span></div>
+                            <div class="row"><span style="opacity:0">a</span></div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group first">
+                                        <label for="bloodgroup">Blood Group</label><br />
+                                       
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupap" value="A+" />
+                                                <label class="form-check-label p-0" for="bloodgroupap">
+                                                    A+
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupbp" value="B+" />
+                                                <label class="form-check-label p-0" for="bloodgroupbp">
+                                                    B+
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupabp" value="AB+" />
+                                                <label class="form-check-label p-0" for="bloodgroupabp">
+                                                    AB+
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupop" value="O+" />
+                                                <label class="form-check-label p-0" for="bloodgroupop">
+                                                    O+
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupan" value="A-" />
+                                                <label class="form-check-label p-0" for="bloodgroupan">
+                                                    A-
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupbn" value="B-" />
+                                                <label class="form-check-label p-0" for="bloodgroupbn">
+                                                    B-
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupabn" value="AB-" />
+                                                <label class="form-check-label p-0" for="bloodgroupabn">
+                                                    AB-
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="bloodgroup"
+                                                    id="bloodgroupon" value="O-" />
+                                                <label class="form-check-label p-0" for="bloodgroupon">
+                                                    O-
+                                                </label>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group first">
+                                <label for="smoking_frequency">How regularly do you? </label>
+                                <select class="form-control" id="smoking_frequency" name="smoking_behavior">
+                                    <option value="Never smoked"  selected>Never smoked</option>
+                                    <option value="Used to smoke" >Used to smoke</option>
+                                    <option value="Regular Smoker" >Regular Smoker</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group first">
+                                <label for="alcohol_frequency">How regularly do you drink alcohol? </label>
+                                <select class="form-control"  name="drinking_behavior" id="alcohol_frequency">
+                                    <option value="Do not drink" selected>Do not drink</option>
+                                    <option value="Less than 15 gram /day" >Less than 15 gram /day</option>
+                                    <option value="15-50gram /day" >15 - 50gram /day</option>
+                                    <option value="more than 50 gram /day" >more than 50 gram /day</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                           
+                                <input class="btn btn-primary" type="submit" value="Submit"/>
+                                
+                            
+                        </div>
+                    </div>
+                </form>
+                </div>
+                
+            </div>
+        </div>
     </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-            Default checked radio
-        </label>
     </div>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</form>
+</body>
+
+</html>

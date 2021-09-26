@@ -32,7 +32,5 @@ def create_app(test_config=None):
     app.register_blueprint(ocr.bp)
     app.register_blueprint(home.bp)
 
-   
-
 
     return app
